@@ -15,6 +15,8 @@ public class Dan17i {
     public static void main(String[] args) {
         Dan17i programa = new Dan17i();
         programa.ejecutarEjemplos();
+        int conteo = functionExtra1("Fizz", "Buzz");
+        System.out.println("Se imprimieron números en lugar de textos: " + conteo);
     }
 
     /*
@@ -162,6 +164,36 @@ public class Dan17i {
         }
         return suma;
     }
+
+    /**
+     * Función que imprime números del 1 al 100 siguiendo las reglas especificadas.
+     * 
+     * @param cadena1 Cadena a mostrar si el número es múltiplo de 3.
+     * @param cadena2 Cadena a mostrar si el número es múltiplo de 5.
+     * @return El número de veces que se imprimió un número en lugar de un texto.
+     */
+    private static int functionExtra1(String cadena1, String cadena2) {
+        int contadorNumeros = 0; // Contador para los números impresos directamente
+
+        for (int i = 1; i <= 100; i++) {
+            boolean multiploDe3 = (i % 3 == 0);
+            boolean multiploDe5 = (i % 5 == 0);
+
+            if (multiploDe3 && multiploDe5) {
+                System.out.println(cadena1 + cadena2);
+            } else if (multiploDe3) {
+                System.out.println(cadena1);
+            } else if (multiploDe5) {
+                System.out.println(cadena2);
+            } else {
+                System.out.println(i);
+                contadorNumeros++;
+            }
+        }
+
+        return contadorNumeros;
+    }
+
 }
 
 /*
